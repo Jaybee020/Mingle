@@ -1,0 +1,12 @@
+.venv
+.vscode
+media
+fonts
+Newfonts
+ins
+fonts
+icons
+.idea
+media
+__pycache__
+*.sqlite3

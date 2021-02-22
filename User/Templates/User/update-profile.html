@@ -1,0 +1,25 @@
+{% extends 'Home/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div style="background-color: whitesmoke; padding:15px 5px 40px 5px ;">
+        <div class="container  " style="width: 50%;background-color: white;  height: 70%; padding:15px  ; ">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend>Update Profile</legend>
+                    {{ p_form|crispy }}
+                   
+                </fieldset>
+                <div class="form-group" style="padding-left: 1px;">
+                    <button type="submit"  class="btn btn-primary">Update</button>
+                </div>
+            </form>
+            
+        </div>
+        
+   
+    </div>
+    
+
+       
+{% endblock %}

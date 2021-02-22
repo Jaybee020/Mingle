@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'Home/long.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'Home/gay.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'Home/fonts.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'Home/Newfonts.css' %}">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<!-- icons -->
+
+  	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  	<script src="{% static 'Home/jquery1.js' %}"></script>
+</head>
+<body>
+	<div class="top">
+		<ul>
+			<li style="width: 50%;">
+				<div style="padding:2px 0 0 20px; ;" class="logo">
+					<img style="width: 30px; " src="{% static 'Home/icons/dry-clean.png' %}">
+					Mingle
+				</div>
+			</li>
+			<li>
+				<nav style="position: absolute; top: 0; right: 0;" class="navbar navbar-expand-lg navbar-light ">
+		
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button>
+				  
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					  <ul class="navbar-nav mr-auto">
+						{% if request.user.is_authenticated %}
+						<li style="margin-right:40px; cursor: pointer;"><a style="color: black;"  href="{% url 'profile' request.user.username %}">My Profile</a></li>
+						<li style="margin-right:20px ; cursor: pointer;"><a style="color: black;"   href="{% url 'logout' %}">Logout</a></li>
+						{% else %}
+						  <li style="margin-right:40px; cursor: pointer;"><a style="color: black;"  href="{% url 'register' %}">Register</a></li>
+						  <li style="margin-right:20px ; cursor: pointer;"><a style="color: black;"  href="{% url 'login' %}"> About</a></li>
+						{% endif %}
+						
+					  </ul>
+					  
+					</div>
+				</nav>
+			</li>
+		</ul>
+
+		{% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-success" role="alert" style="padding-bottom: 0px;  margin-bottom: 0px; ">
+            {{message}}
+          </div>
+          {% endfor %}
+        {% endif %}
+		
+		
+	
+		<div class="talk">
+			<div class="talk1">
+				In a world that criticizes your sexual desires, we accept you.
+            </div>
+            
+            
+			<a style=" color: black; text-emphasis: none;text-decoration: none;" href="{% url 'register' %}">
+				<div class="map">
+					<p>Mingle</p>
+					<p>Now</p>
+					<img src="{% static 'Home/icons/rgt.png' %}">
+				</div>
+			</a>
+		</div>
+           
+
+		<div class="Introduction">
+			<h4 style="font-size: 16px; color: rgb(243,30,90); margin: 20px 0 15px 0; text-align: center; font-family: sans-serif; letter-spacing: 3px;">Dating Agency</h4>
+			<h1 style="margin-top: 0; color: rgb(45,44,47); font:44px / 56px 'Paytone One',sans-serif ; text-align: center; text-rendering: optimizeLegibility;">Welcome</h1>
+			<div style="text-align: center;  font-family: 'Open Sans', sans-serif; font-size: 16px; max-width: 750px; margin-left: auto; margin-right: auto;">
+				<p style="color:rgb(102,102,102) ;">Our dating site is designed to ensure each person gets their potential match irrespective of your sexual orientation.We believe that on our platform you can be who you are and find who you are looking for and define the type of relationship you want.Register on our site and start finding your dream relationship. </p>
+				<img style="width:180px; height: 180px; border-radius: 90px;" src="{% static 'Home/pexels-jasmine-carter-613321 2.jpg' %}">
+			</div>
+		</div>
+
+		<div style="margin-top: 30px; text-align: center; background-color: #F3F1F4; padding: 0 0 0 0; max-width: 100%; margin-right: 0; margin-left: 0;" class="Offer container">
+			<h1 style="padding-top: 50px; font-family: Open Sans,sans-serif;font-weight: 400;text-rendering: optimizeLegibility;">What We Offer </h1>
+			<ul style="padding:3% 4% 3% 4%;" class="row">
+				<li  class="col-sm">
+					<img style="height: 80px;" src="{% static 'Home/lock-7-128-removebg-preview.png' %}"> 
+					<p style="font-family: Open Sans,sans-serif;color: #31333d;font-weight: 700;text-rendering: optimizeLegibility; letter-spacing: 1px;">Secuirity</p>
+					<p style="font-family: Open Sans,sans-serif;color: #31333d;">Secure registration processes and profile checks to ensure a dating experience with real people.This is to avoid scams </p>
+				</li>
+				<li  class="col-sm">
+					<img style="height: 80px;" src="https://www.elitesingles.com/static/affinitas-runway-ng-master-806/images/themes/cupido/onboarding/icon_RTB_2.svg"> 
+					<p style="font-family: Open Sans,sans-serif;color: #31333d;font-weight: 700;text-rendering: optimizeLegibility; letter-spacing: 1px;">Matchmaking</p>
+					<p style="font-family: Open Sans,sans-serif;color: #31333d;">In Mingle,our algorithm delivers the most relevant and active users based on your preference </p>
+				</li>
+				<li  class="col-sm">
+					<img style="height: 80px;" src="{% static 'Home/message-128-removebg-preview.png' %}"> 
+					<p style="font-family: Open Sans,sans-serif;color: #31333d;font-weight: 700;text-rendering: optimizeLegibility; letter-spacing: 1px;">Messaging</p>
+					<p style="font-family: Open Sans,sans-serif;color: #31333d;">Our site provides instant messaging in order to enable communication between potential lovers </p>
+				</li>
+			</ul>
+		</div>
+
+		<div style="margin-top: 30px; margin-bottom: 30px; text-align: center;  padding: 0 0 0 0; max-width: 100%; margin-right: 0; margin-left: 0;" class="Offer container">
+			<h1 style="padding-top: 50px; font-family: Open Sans,sans-serif;font-weight: 400;text-rendering: optimizeLegibility;">Success Stories </h1>
+			<div style="margin-top: 30px; justify-content: center;" class="row">
+				<div style="padding:20px; margin: 2px 10px 3px 0px;  background-color: #F3F1F4;" class="col-md-3 grow">
+					<img style="width: 150px; height: 150px; border-radius: 75px;" src="https://images.unsplash.com/photo-1528165990012-15bdf54858cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60">
+					<div style="font-family: 'Special Elite', cursive;" class="wrapper">
+						<blockquote >"As soon as we met on Mingle,we decided to go on our first date and it was been a marvel"</blockquote>
+						<cite>Bonnie and Clyde</cite>
+					</div>
+				</div>
+				<div style="padding:20px; margin: 2px 10px 3px 10px;  background-color: #F3F1F4;" class="col-md-3 grow">
+					<img style="width: 150px; height: 150px; border-radius: 75px;" src="https://images.unsplash.com/photo-1541089404510-5c9a779841fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60">
+					<div style="font-family: 'Special Elite', cursive;" class="wrapper">
+						<blockquote >"The dates are now regular and we are building our strengths to take this  to the next level."</blockquote>
+						<cite>David and Janet</cite>
+					</div>
+				</div>
+				<div style="padding:20px; margin: 2px 10px 3px 10px;  background-color: #F3F1F4;" class="col-md-3 grow	">
+					<img style="width: 150px; height: 150px; border-radius: 75px;" src="https://images.pexels.com/photos/3693894/pexels-photo-3693894.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
+					<div style="font-family: 'Special Elite', cursive;" class="wrapper">
+						<blockquote >"We are so happy to have met each other.This is our first vacation together"</blockquote>
+						<cite>Hayley and Grace</cite>
+					</div>
+				</div>
+			
+
+			</div>
+
+			
+		
+		</div>
+
+
+		<div style="margin-top: 50px; background-color: #2D2C2F; padding: 0 0 0 0; max-width: 100%; margin-right: 0; margin-left: 0;" class="footer container">
+			<div class="row">
+				
+				<div style="padding:2px 0 0 80px; ;" class=" col-md-4">
+				
+					<div class="logo-2">Mingle</div>
+					
+				<p style="font-size: 14px; color: #646364;">Dating @ 2020 | Privacy Policy</p>
+				</div>
+
+				<div style="padding:40px 0 0 80px; ;" class=" col-md-4">
+					<h5 style="color: white;">About Us</h5>
+					<p style="color: white;">At Mingle Our aim is to ensure you find whatever kind of relationship you want with the type of person you wish to have the relationship with</p>
+				
+					
+				</div>
+
+				<div style="padding:40px 0 0 80px; ;" class=" col-md-4">
+					<svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-phone" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M11 1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+						<path fill-rule="evenodd" d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+					  </svg>
+					  <span style="color: white;">07065281552</span>
+					  
+
+					  <div style="padding-top: 20px;">
+						<svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+						  </svg>
+
+						  <span style="color: white;">olayinkaganiyu1@gmail.com</span>
+					  </div>
+				</div>
+				
+				
+
+			</div>
+			
+		
+	</div>
+
+	</div>
+
+	
+	
+	
+</body>
+
+
+
+
+
+
+<!-- Scripts -->
+<script src="{% static 'Home/gay.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

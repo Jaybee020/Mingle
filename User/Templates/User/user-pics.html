@@ -1,0 +1,71 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+
+
+<div style=" background-color: rgb(245, 245, 245); padding-bottom: 50px; font-family:'Lato' ;">
+    <div class="container">
+        <div style="height: 45%; background-color: white; margin: 50px 0px; padding: 50px;">
+            <div class="row">
+                <div class="col-md-7" style="padding-right: 40px; border-right: 2px solid rgb(245, 245, 245) ;  ">
+                    <div class="row">
+                        <div class="col-md-4"><img  style="width: 150px; height: 150px; border-radius: 75px;"  src= "{{user.profile.image.url}}" alt=""></div>
+                        
+                        <div class="col-md-8"> <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;"> {{user.profile.user.first_name.capitalize}} {{user.profile.user.last_name.capitalize}}</h3>
+                        {% if request.user == user %}
+                            <div style=" padding: 20px 0px; color: green;"><a class="btn btn-primary btn-md" href="{% url 'post-create' %}" role="button">UPLOAD PICTURE</a></div>
+                        {% else %}
+                            <br>
+                        {% endif %}
+                        </div>
+
+                    </div>
+                   
+                   
+                </div>
+                
+                <div class="col-md-5 ">
+                    <div style="margin-bottom: 20px;"><span style="font-weight: bold; margin-right: 70px;">Gender: </span> <span>{{user.profile.gender.capitalize}}</span> 
+                        </div>
+                        <div style="margin-bottom: 20px;"><span style="font-weight: bold; margin-right: 32px;">Date Of Birth:</span> <span>{{user.profile.date_of_birth}}</span> 
+                        </div>
+                        <div style="margin-bottom: 20px;"><span style="font-weight: bold; margin-right: 62px;" >Location:</span> <span>{{user.profile.location}}</span> 
+                        </div>
+
+                </div>
+            </div>
+            
+        </div>
+        <ul style="display: inline;list-style: none; padding-left: 0px;">
+            
+            <a style="display: inline; " href="{% url 'profile' user.username %}">PROFILE</a>
+            <p style="display: inline; margin-left: 50px;">PICTURE</p>
+        </ul>
+        <hr>
+
+        <div>
+            {% for posts in post %}
+                {% if posts.user == user %}
+                <div >
+                    <div >
+                        <div ><img style="width:30%;float:left; margin:0.5% 2% 2% 0%; ; " src="{{posts.pictures.url}}" alt=""></div>
+                    </div>
+                    
+                {% else %}
+                
+                {% endif %}
+            {% endfor %}
+        </div>
+
+   
+                    
+    
+</div>
+
+
+</div>
+    
+
+
+
+{% endblock %}

@@ -1,0 +1,487 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title  style="font-family: laser;" >{{user.username}} </title>
+	<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'chat/long.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'User/fonts.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'User/Newfonts.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'chat/chat_room.css' %}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- icons -->
+  	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  	<script src="{% static 'User/jquery1.js' %}"></script>
+</head>
+<body>
+<div class="header">
+	<header>
+		Chats 
+		<div class="mssg">
+			<img src="{% static 'User/icons/mail.svg' %}">
+			
+		</div>
+	</header>
+</div>
+
+<aside class="pick">
+	<div class="recent">
+        {% for convos in convo %}
+		{% if convos.Recipient != request.user %}
+		<a style="text-decoration: none; color: black; cursor: pointer;" href="{% url 'chat' convos.Recipient.username %}">
+		<div class="person">
+			
+			<div class="cpic-sect"><div class="cpic cpic1"><img style="width: 50px; height: 50px; border-radius: 100%;" src= "{{convos.Recipient.profile.image.url}}"  ></div></div>
+			<!--------------->
+			<div class="ctxt">
+				<div class="line"></div>
+				<div class="sdr-nm">
+					{{convos.Recipient.username}}
+					<div class="active"></div>
+				</div>
+				<div class="act-txt">
+					{{convos.last_message}}
+				</div>
+				<div class="time-del">
+					
+					{{convos.last_contact}}
+					<div class="num-mes"></div>
+				</div>
+			</div>
+			</div>
+		</a>
+		{% else %}
+		<a style="text-decoration: none; color: black; cursor: pointer;" href="{% url 'chat' convos.Initiator.username %}">
+		<div class="person">
+			<div class="cpic-sect"><div class="cpic cpic1"><img style="width: 50px; height: 50px; border-radius: 100%;" src= "{{convos.Initiator.profile.image.url}}"  ></div></div>
+			<!--------------->
+			<div class="ctxt">
+				<div class="line"></div>
+				<div class="sdr-nm">
+					{{convos.Initiator.username}}
+					<div class="active"></div>
+				</div>
+				<div class="act-txt">
+					{{convos.last_message}}
+				</div>
+				<div class="time-del">
+					
+					{{convos.last_contact}}
+					
+				</div>
+			</div>
+		</div>
+	</a>
+		{% endif %}
+		{% endfor %}
+		
+		
+		
+	</div>
+</aside>
+
+<div class="nav">
+	<div class="nava">
+		<a style="color: black;" href="{% url 'profile' user.username %}">
+			<div style="position: absolute; left: -20px;" class="logo">
+				{{user.username}}
+			</div>
+		</a>
+		
+		<div style="cursor: pointer;" class="waver">
+			<img src="{% static 'User/icons/wave2.svg' %}" class="wave">
+		</div>
+		<div style="cursor: pointer;" class="nav-links">
+			<a style="text-decoration: none; color: black;" href="{% url 'Home' %}"><div>Home</div></a>
+			<a style="text-decoration: none; color: black;"><div>About</div></a>
+			<a style="text-decoration: none;"><div>Explore</div></a>
+		</div>
+	</div>
+	<div style="width: 100%; position: absolute; left: 0px;" class="nav-line"></div>
+</div>
+
+
+<div class="prof" style="margin-bottom:0px;">
+	<div  id="chat-message-list"  style="height: 85%; width: 100%; margin: 0; padding: 0 20px;">
+		{% for messages in message %}
+		<input type="hidden" value="{{request.user.username}}" id="myname">
+		
+		{% if messages.sender == request.user %}
+			<div class="message-row you-message">
+				<div class="message-content">
+				{% if messages.attachment %}
+				<figure><img   src="{{ messages.attachment.url }}" alt="attachment">
+				<figcaption>{{messages.content}}</figcaption>
+				</figure>
+				<div class="message-time">{{messages.timestamp}}</div>
+				{% else %}
+					<div class="message-text">{{messages.content}}</div> 
+					<div class="message-time">{{messages.timestamp}}</div> 
+					
+				{% endif %}
+					
+				</div>
+			</div>
+		
+		{% else %}
+
+		
+		<div class="message-row other-message">
+			<div class="message-content">
+				{% if messages.attachment %}
+				<img style="width: 50px; height: 50px; border-radius: 100%;" src="{{user.profile.image.url}}">
+				<figure><img   src="{{ messages.attachment.url }}" alt="attachment">
+					<figcaption>{{messages.content}}</figcaption>
+					</figure>
+					<div class="message-time">{{messages.timestamp}}</div>
+				{% else %}
+					<img style="width: 50px; height: 50px; border-radius: 100%;" src="{{user.profile.image.url}}">
+					<div class="message-text">{{messages.content}}</div> 
+					<div class="message-time">{{messages.timestamp}}</div> 
+
+				{% endif %}
+				
+			</div>
+		
+		</div>
+				  
+		{% endif %}  
+		 
+		{% endfor %}
+		
+		
+    </div>
+    
+
+    <div   id="chat-form" style="height: 4.5%; width: 100%; margin: 0; padding: 0; position:absolute; bottom: 7%;">
+                        
+                    
+        <div class="chat-form-input"></div>
+            <form enctype="multipart/form-data" id="form"  style=" height: 50%; margin-top: 5px; margin-bottom: 0; padding: 0;" method="POST">
+                {% csrf_token %}
+            
+            
+            <ul style="list-style: none;">
+                <li style="display: inline-block; width: 80%; margin: 0px; padding: 0px 5px 0px 25px;">{{form.message_input}}</li>
+                <label style="padding-left: 25px; padding-top: 15px;  margin-top: 10px;" for="{{ form.attachment.id_for_label }}"><svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-camera-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                    <path fill-rule="evenodd" d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
+                  </svg></label>
+                <li style="display: inline-block; width: 5%; margin: 0px; padding: 0px 5px 0px 0px;">{{form.attachment}}</li>
+                <li style="display: inline-block; width: 5%; margin: 0px; padding: 0px px 0px 0px;"> <button class="btn btn-success" type="submit">SEND</button> </li>
+            </ul>
+            
+           
+            
+           
+            </form>
+        </div>
+
+
+<div class="setters">
+
+	<div class="menu-but">
+		<div class="men-l1"></div>
+		<div class="men-l2"></div>
+		<div class="men-l3"></div>
+		<div class="men-l4"></div>
+	</div>
+
+	<a class="home-page">
+		<img src="{% static 'User/icons/magnifiying-glass.svg' %}">
+	</a>
+	<a href="{% url 'notifications' %}" class="notif">
+		<img src="{% static 'User/icons/bell.svg' %}">
+		
+	</a>
+	<a href="{% url 'profile' request.user.username %}" class="music">
+		<img src="{% static 'User/icons/person.svg' %}">
+	</a>
+	
+
+	<div class="logout">
+		<a href="{% url 'logout' %}" class="out">
+			<img src="{% static 'User/icons/logout.svg' %}">
+		</a>
+	</div>
+</div>
+
+<!-- Scripts -->
+<script src="{% static 'User/long.js' %}"></script>
+
+
+
+        
+        
+
+
+
+
+       
+        {% block script %}
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+
+            
+            var formData= $('#form')
+            var msginput= $("#id_message_input")
+            var fileinput=$('input[type=file]')
+            var chatHolder=$("#chat-message-list")
+            var loc=window.location
+            var me=$("#myname").val()
+            console.log(loc)
+            var wsStart= 'ws://' 
+            if (loc.protocol=="https:"){
+                wsStart='wss://'
+            }
+            let attachment
+            var endpoint = wsStart + loc.host + loc.pathname
+            var socket = new WebSocket(endpoint)
+            let currentUser = '{{ request.user.username }}';
+
+            function previewfile() {
+                let file=fileinput.prop('files')[0]
+                console.log(file)
+                    
+                    var reader=new FileReader()
+                    reader.onload = function(){
+                         result=reader.result
+                       
+                         attachment={
+                            type:result.split(',')[0].split('/')[1].split(';')[0],//designed to get the format of the pic(i.e if it jpeg or anything else)
+                            data:result.split(',')[1]
+                        }
+                        
+                    };
+                    if(file){
+                        reader.readAsDataURL(file);
+                        }
+                    
+    }
+
+            
+            
+            socket.onopen = function(e){
+               
+                console.log("open",e)
+                formData.submit(function(event){
+                    event.preventDefault()///helps to prevent the default event from happening during the socket on open
+                    var msgText=msginput.val()
+                    if(!msgText && !attachment){
+                    msginput.val("Attachment and message cannot be empty!") 
+                    setTimeout(()=>{
+                    msginput.val("") ;
+                    }, 1000)
+                    }
+                    
+                    else{
+                    var finalData={
+                        'message':msgText,
+                        'file':attachment
+                    }
+					console.log(attachment)
+                    
+                    socket.send(JSON.stringify(finalData))///sends this final Data to the backend 
+                    msginput.val("")
+					attachment=""
+                }})
+            }
+            
+
+            socket.onmessage = function(e){
+                let sender = 'other'
+                console.log("message",e)
+                console.log(e.data)
+                let newDate= new Date()
+				
+                ///let now=timestamp.toLocaleString()
+				var objToday = new Date();
+			
+			
+			domEnder = function() { var a = objToday; if (/1/.test(parseInt((a + "").charAt(0)))) return "th"; a = parseInt((a + "").charAt(1)); return 1 == a ? "st" : 2 == a ? "nd" : 3 == a ? "rd" : "th" }(),
+			dayOfMonth = today + ( objToday.getDate() < 10) ? '0' + objToday.getDate() + domEnder : objToday.getDate() + domEnder,
+			months = new Array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Octo', 'Nov', 'Dec'),
+			curMonth = months[objToday.getMonth()],
+			curYear = objToday.getFullYear(),
+			curHour = objToday.getHours() > 12 ? objToday.getHours() - 12 : (objToday.getHours() < 10 ? "0" + objToday.getHours() : objToday.getHours()),
+			curMinute = objToday.getMinutes() < 10 ? "0" + objToday.getMinutes() : objToday.getMinutes(),
+			curSeconds = objToday.getSeconds() < 10 ? "0" + objToday.getSeconds() : objToday.getSeconds(),
+			curMeridiem = objToday.getHours() > 12 ? "PM" : "AM";
+			var today = curMonth + ". " + dayOfMonth + ", " + curYear + ", " + curHour + ":" + curMinute + " " + curMeridiem + "." ;
+			var chatData=JSON.parse(e.data)
+			let img='<img style="width: 50px; height: 50px; border-radius: 100%;" src="{{user.profile.image.url}}">'
+			if (chatData.username  === currentUser) sender = 'you',img="";
+			if (chatData.hasOwnProperty('file')){
+				appendmessage(chatData.message,sender,img,today,chatData.file)
+			}
+			else {
+				appendmessage(chatData.message,sender,img,today)
+			}
+
+			$('.recent').html("")
+				$.ajax ({
+	
+			url:"{% url 'messages_db' %}",
+	
+			success: function load(data){
+			console.log(data);
+			result=data
+			$.each(result,function(i,item) {
+			
+			$('.recent').append(`
+
+			
+			
+			<a style="text-decoration: none; color: black; cursor: pointer;" href="${loc.origin}/chat/${item.user}/">
+			<div class="person">
+			
+			<div class="cpic-sect"><div class="cpic cpic1"><img style="width: 50px; height: 50px; border-radius: 100%;" src= "${item.user_img_path}""  ></div></div>
+			<!--------------->
+			<div class="ctxt">
+				<div class="line"></div>
+				<div class="sdr-nm">
+					${item.user}
+					<div class="active"></div>
+				</div>
+				<div class="act-txt">
+					${item.last_message}
+				</div>
+				<div class="time-del">
+					
+					${item.last_contact}
+					<div class="num-mes"></div>
+				</div>
+			</div>
+			</div>
+		</a>
+
+
+			
+			`)
+			
+			})
+			}
+			
+		
+		
+		
+		})
+				
+			
+		}
+
+			
+
+        
+
+            socket.onerror = function(e){
+                console.log("error",e)
+            }
+
+            socket.onclose =function(e){
+                console.log("close",e)
+            }
+
+            function appendmessage(text,sender,img,time,attachment=undefined){
+                if (attachment){
+                    chatHolder.prepend(`
+                <div class="message-row ${sender}-message">
+                        <div class="message-content">
+                              ${img}      
+                            <figure><img   src="${attachment}" alt="attachment">
+                                <figcaption>${text}</figcaption>
+                                </figure>
+                                <div class="message-time">${time}</div>
+                        </div>
+                </div>
+                
+                `
+                
+                )
+
+                }
+                else{
+                    chatHolder.prepend(`
+                <div class="message-row ${sender}-message">
+                        <div class="message-content">
+                              ${img}      
+                            <div class="message-text">${text}</div> 
+                            <div class="message-time">${time}</div> 
+                           
+                        </div>
+                </div>
+                
+                `)
+                }
+            }
+
+
+		function rearrange_message_list(){
+			$('.recent').html("")
+				$.ajax ({
+	
+			url:"{% url 'messages_db' %}",
+	
+			success: function load(data){
+			console.log(data);
+			result=data
+			$.each(result,function(i,item) {
+			
+			$('.recent').append(`
+
+			
+			
+			<a style="text-decoration: none; color: black; cursor: pointer;" href="${loc.origin}/chat/${item.user}/">
+			<div class="person">
+			
+			<div class="cpic-sect"><div class="cpic cpic1"><img style="width: 50px; height: 50px; border-radius: 100%;" src= "${item.user_img_path}""  ></div></div>
+			<!--------------->
+			<div class="ctxt">
+				<div class="line"></div>
+				<div class="sdr-nm">
+					${item.user}
+					<div class="active"></div>
+				</div>
+				<div class="act-txt">
+					${item.last_message}
+				</div>
+				<div class="time-del">
+					
+					${item.last_contact}
+					<div class="num-mes"></div>
+				</div>
+			</div>
+			</div>
+		</a>
+
+
+			
+			`)
+			
+			})
+			}
+			
+		
+		
+		
+		})
+		}
+
+		//setInterval(rearrange_message_list,30000)
+
+
+        </script>
+
+        {% endblock %}
+    </body>
+
+
+
+    </html>
+
+

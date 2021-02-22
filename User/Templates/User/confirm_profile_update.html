@@ -1,0 +1,209 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title  style="font-family: laser;">Profile Update</title>
+	<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'User/long.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'User/fonts.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'User/Newfonts.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- icons -->
+  	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  	<script src="{% static 'User/jquery1.js' %}"></script>
+</head>
+<body>
+<div class="header">
+	<header>
+		Chats 
+		<div class="mssg">
+			<img src="{% static 'User/icons/mail.svg' %}">
+			<p>17</p>
+		</div>
+	</header>
+</div>
+
+<aside class="pick">
+	<div class="recent">
+		{% for convos in convo %}
+		{% if convos.Recipient != request.user %}
+		<a style="text-decoration: none; color: black; cursor: pointer;" href="{% url 'chat' convos.Recipient.username %}">
+		<div class="person">
+			
+			<div class="cpic-sect"><div class="cpic cpic1"><img style="width: 50px; height: 50px; border-radius: 100%;" src= "{{convos.Recipient.profile.image.url}}"  ></div></div>
+			<!--------------->
+			<div class="ctxt">
+				<div class="line"></div>
+				<div class="sdr-nm">
+					{{convos.Recipient.username}}
+					<div class="active"></div>
+				</div>
+				<div class="act-txt">
+					{{convos.last_message}}
+				</div>
+				<div class="time-del">
+					
+					{{convos.last_contact}}
+					<div class="num-mes"></div>
+				</div>
+			</div>
+			</div>
+		</a>
+		{% else %}
+		<a style="text-decoration: none; color: black; cursor: pointer;" href="{% url 'chat' convos.Initiator.username %}">
+		<div class="person">
+			<div class="cpic-sect"><div class="cpic cpic1"><img style="width: 50px; height: 50px; border-radius: 100%;" src= "{{convos.Initiator.profile.image.url}}"  ></div></div>
+			<!--------------->
+			<div class="ctxt">
+				<div class="line"></div>
+				<div class="sdr-nm">
+					{{convos.Initiator.username}}
+					<div class="active"></div>
+				</div>
+				<div class="act-txt">
+					{{convos.last_message}}
+				</div>
+				<div class="time-del">
+					
+					{{convos.last_contact}}
+					<div class="num-mes"><p>4</p></div>
+				</div>
+			</div>
+		</div>
+	</a>
+		{% endif %}
+		{% endfor %}
+		
+		
+		
+	</div>
+</aside>
+
+<div class="nav">
+	<div class="nava">
+		<div class="logo">
+			<div class="div-a">M</div><div class="div-b">e</div><div class="div-c">/</div><div class="div-d">g</div><div class="div-e">a</div>
+		</div>
+		<div style="cursor: pointer;" class="waver">
+			<img src="{% static 'User/icons/wave2.svg' %}" class="wave">
+		</div>
+		<div style="cursor: pointer;" class="nav-links">
+			<a style="text-decoration: none;" href="{% url 'Home' %}"><div>Home</div></a>
+			<a style="text-decoration: none;"><div>About</div></a>
+			<a style="text-decoration: none;"><div>Explore</div></a>
+		</div>
+	</div>
+	<div class="nav-line"></div>
+</div>
+
+
+<div class="prof">
+	<form style="width: 90%; " method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset style="border: 1px solid black; border-top: none; border-right: none; padding: 25px; padding-top: 0px;" class="form-group" >
+            <legend style="padding-top: 20px;">Update Profile</legend>
+            <hr>
+
+            
+            {{ p_form|crispy }}
+            
+           
+        </fieldset>
+        <div class="form-group" style="padding-left: 1px;">
+            <button type="submit"  class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="setters">
+
+	<div class="menu-but">
+		<div class="men-l1"></div>
+		<div class="men-l2"></div>
+		<div class="men-l3"></div>
+		<div class="men-l4"></div>
+	</div>
+
+	<a class="home-page">
+		<img src="{% static 'User/icons/magnifiying-glass.svg' %}">
+	</a>
+	<a href="{% url 'notifications' %}" class="notif">
+		<img src="{% static 'User/icons/bell.svg' %}">
+		<p>01</p>
+	</a>
+	<a href="{% url 'profile' request.user.username %}" class="music">
+		<img src="{% static 'User/icons/person.svg' %}">
+	</a>
+	
+
+	<div class="logout">
+		<a href="{% url 'logout' %}"  class="out">
+			<img src="{% static 'User/icons/logout.svg' %}">
+		</a>
+	</div>
+</div>
+
+<!-- Scripts -->
+<script src="{% static 'User/long.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+	function rearrange_message_list(){
+			$('.recent').html("")
+				$.ajax ({
+	
+			url:"{% url 'messages_db' %}",
+	
+			success: function load(data){
+			console.log(data);
+			result=data
+			$.each(result,function(i,item) {
+			
+			$('.recent').append(`
+
+			
+			
+			<a style="text-decoration: none; color: black; cursor: pointer;" href="${loc.host}/chat/${item.user}/">
+			<div class="person">
+			
+			<div class="cpic-sect"><div class="cpic cpic1"><img style="width: 50px; height: 50px; border-radius: 100%;" src= "${item.user_img_path}""  ></div></div>
+			<!--------------->
+			<div class="ctxt">
+				<div class="line"></div>
+				<div class="sdr-nm">
+					${item.user}
+					<div class="active"></div>
+				</div>
+				<div class="act-txt">
+					${item.last_message}
+				</div>
+				<div class="time-del">
+					
+					${item.last_contact}
+					<div class="num-mes"></div>
+				</div>
+			</div>
+			</div>
+		</a>
+
+
+			
+			`)
+			
+			})
+			}
+			
+		
+		
+		
+		})
+		}
+
+		//setInterval(rearrange_message_list,30000)
+
+</script>
+</body>
+</html>

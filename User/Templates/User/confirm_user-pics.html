@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title  style="font-family: laser;" >{{user.username}} Pictures</title>
+	<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'User/long.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'User/fonts.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'User/Newfonts.css' %}">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- icons -->
+  	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  	<script src="{% static 'User/jquery1.js' %}"></script>
+</head>
+<body>
+<div class="header">
+	<header>
+		Chats 
+		<div class="mssg">
+			<img src="{% static 'User/icons/mail.svg' %}">
+			<p>17</p>
+		</div>
+	</header>
+</div>
+
+<aside class="pick">
+	<div class="recent">
+        {% for convos in convo %}
+		{% if convos.Recipient != request.user %}
+		<a style="text-decoration: none; color: black; cursor: pointer;" href="{% url 'chat' convos.Recipient.username %}">
+		<div class="person">
+			
+			<div class="cpic-sect"><div class="cpic cpic1"><img style="width: 50px; height: 50px; border-radius: 100%;" src= "{{convos.Recipient.profile.image.url}}"  ></div></div>
+			<!--------------->
+			<div class="ctxt">
+				<div class="line"></div>
+				<div class="sdr-nm">
+					{{convos.Recipient.username}}
+					<div class="active"></div>
+				</div>
+				<div class="act-txt">
+					{{convos.last_message}}
+				</div>
+				<div class="time-del">
+					
+					{{convos.last_contact}}
+					<div class="num-mes"></div>
+				</div>
+			</div>
+			</div>
+		</a>
+		{% else %}
+		<a style="text-decoration: none; color: black; cursor: pointer;" href="{% url 'chat' convos.Initiator.username %}">
+		<div class="person">
+			<div class="cpic-sect"><div class="cpic cpic1"><img style="width: 50px; height: 50px; border-radius: 100%;" src= "{{convos.Initiator.profile.image.url}}"  ></div></div>
+			<!--------------->
+			<div class="ctxt">
+				<div class="line"></div>
+				<div class="sdr-nm">
+					{{convos.Initiator.username}}
+					<div class="active"></div>
+				</div>
+				<div class="act-txt">
+					{{convos.last_message}}
+				</div>
+				<div class="time-del">
+					
+					{{convos.last_contact}}
+					<div class="num-mes"><p>4</p></div>
+				</div>
+			</div>
+		</div>
+	</a>
+		{% endif %}
+		{% endfor %}
+		
+		
+		
+	</div>
+</aside>
+
+<div class="nav">
+	<div class="nava">
+		<div class="logo">
+			<div class="div-a">M</div><div class="div-b">e</div><div class="div-c">/</div><div class="div-d">g</div><div class="div-e">a</div>
+		</div>
+		<div style="cursor: pointer;" class="waver">
+			<img src="{% static 'User/icons/wave2.svg' %}" class="wave">
+		</div>
+		<div style="cursor: pointer;" class="nav-links">
+			<a style="text-decoration: none;" href="{% url 'Home' %}"><div>Home</div></a>
+			<a style="text-decoration: none;"><div>About</div></a>
+			<a style="text-decoration: none;"><div>Explore</div></a>
+		</div>
+	</div>
+	<div class="nav-line"></div>
+</div>
+
+
+<div class="prof">
+	<div class="land-prof">
+		
+		<div class="ppic">
+			<img  style="width: 320px;  "  src= "{{user.profile.image.url}}" alt="">
+		</div>
+		<!----------------------->
+		<div class="name">
+			<div class="r-name">{{user.username}}</div>
+			<div class="u-name">{{user.profile.total_likes}} flinged this user </div>
+		</div>
+        <!----------------------->
+        {% if request.user == user %}
+            <a href="{% url 'post-create' %}" ><button class="fing">Upload Picture </button></a>
+        {% else %}
+        <button class="fing" value="{{user.profile.pk}}">Flinge</button>
+        {% endif %}
+		
+		<!----------------------->
+		<div class="bio">
+			I'm not your ordinary B; I am always out there hustling’ to claim what’s mine. <tag>#mil@20</tag> 
+		</div>
+		
+		
+		<!----------------------->
+		<ul class="pmed">
+	        <li>
+	        	<img style="width: 16px;  margin-right: 4px;" src="https://img.icons8.com/material/48/000000/worldwide-location--v1.png"/>
+	        	{{user.profile.location}}
+	        </li>
+	        <li>
+	        	<img style="width: 15px; margin-right: 4px;" src="https://img.icons8.com/metro/26/000000/birthday.png"/>
+	        	 {{user.profile.date_of_birth}}
+	        </li>
+	        
+	    </ul>
+        <div class="scroll"><a href="#about">scroll to view {{user.username}} pictures</a></div>
+        
+        
+    </div>
+
+    <div class="characs-see-all-profile">
+        <a style="text-decoration: none;" href="{% url 'profile' user.username %}"><span><tag>{{user.username}} profile</tag></span></a>
+        <img src="{% static 'User/icons/rgt.png' %}" class="arrow-to2">
+    </div>
+    <!----------------------->
+
+
+
+    <div class="about" id="about">
+    	{% for posts in post %}
+            {% if posts.user == user %}
+            <div >
+                <div >
+                    <div ><img style="width: 30%; ;float:left; margin:0.5% 2% 2% 0%; ; " src="{{posts.pictures.url}}" alt=""></div>
+                </div>
+                
+            {% else %}
+            
+            {% endif %}
+        {% endfor %}
+</div>
+
+    
+    
+
+</div>
+
+
+<div class="setters">
+
+	<div class="menu-but">
+		<div class="men-l1"></div>
+		<div class="men-l2"></div>
+		<div class="men-l3"></div>
+		<div class="men-l4"></div>
+	</div>
+
+	<a class="home-page">
+		<img src="{% static 'User/icons/magnifiying-glass.svg' %}">
+	</a>
+	<a class="notif">
+		<img src="{% static 'User/icons/bell.svg' %}">
+		<p>01</p>
+	</a>
+	<a href="{% url 'profile' request.user.username %}" class="music">
+		<img src="{% static 'User/icons/person.svg' %}">
+	</a>
+	
+
+	<div class="logout">
+		<a href="{% url 'logout' %}" class="out">
+			<img src="{% static 'User/icons/logout.svg' %}">
+		</a>
+	</div>
+</div>
+
+<!-- Scripts -->
+<script src="{% static 'User/long.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+@font-face{
+	src: url(Newfonts/Aktiv.ttf);
+	font-family: aktiv;
+}
+
+@font-face{
+	src: url(Newfonts/Maison.ttf);
+	font-family: maison;
+}
+
+@font-face{
+	src: url(Newfonts/ZCOOL_XiaoWei/ZCOOLXiaoWei-Regular.ttf);
+	font-family: xiao;
+}
+
+@font-face{
+	src: url(Newfonts/Long_Cang/LongCang-Regular.ttf);
+	font-family: cang;
+}
+
+@font-face{
+	src: url(Newfonts/Noto_Serif_SC/NotoSerifSC-Light.otf);
+	font-family: noto;
+}
+
+@font-face{
+	src: url(Newfonts/Rancho/Rancho-Regular.ttf);
+	font-family: rancho;
+}
+
+@font-face{
+	src: url(Newfonts/Syncopate/Syncopate-Regular.ttf);
+	font-family: syncopate;
+}
+
+@font-face{
+	src: url(Newfonts/Tusker/tusker.ttf);
+	font-family: tusker1;
+}
+
+@font-face{
+	src: url(Newfonts/Tusker/tusker2.otf);
+	font-family: tusker2;
+}
+
+@font-face{
+	src: url(Newfonts/Open_Sans/OpenSans-Light.ttf);
+	font-family: opensans;
+}
+
+@font-face{
+	src: url(Newfonts/Alloy/Alloy-Regular.ttf);
+	font-family: alloy;
+}
+
+@font-face{
+	src: url(Newfonts/quicksand/Quicksand_Light.otf);
+	font-family: quicksand;
+}
+
+@font-face{
+	src: url(Newfonts/made_bon_voyage/voyage.otf);
+	font-family: voyage;
+}
+
+@font-face{
+	src: url(Newfonts/PT_Serif/PTSerif-Regular.ttf);
+	font-family: ptserif;
+}
+
+@font-face{
+	src: url(Newfonts/Inconsolata/Inconsolata-ExtraLight.ttf);
+	font-family: inconsolata1;
+}
+
+@font-face{
+	src: url(Newfonts/Inconsolata/Inconsolata-Light.ttf);
+	font-family: inconsolata2;
+}
+
+@font-face{
+	src: url(Newfonts/Inconsolata/InconsolataExpanded-Regular.ttf);
+	font-family: inconsolata3;
+}
+
+@font-face{
+	src: url(Newfonts/Playfair_Display/PlayfairDisplay-VariableFont.ttf);
+	font-family: playfair;
+}
+
+@font-face{
+	src: url(Newfonts/Slabo_27px/Slabo27px-Regular.ttf);
+	font-family: slabo;
+}
+
+@font-face{
+	src: url(Newfonts/Nanum_Myeongjo/NanumMyeongjo-Regular.ttf);
+	font-family: nanum;
+}
+
+@font-face{
+	src: url(Newfonts/Sriracha/Sriracha-Regular.ttf);
+	font-family: racha;
+}
+
+@font-face{
+	src: url(Newfonts/Lora/Lora-Regular.ttf);
+	font-family: lora;
+}
+
+@font-face{
+	src: url(Newfonts/larsseit/Larsseit.ttf);
+	font-family: laser;
+}
+
+@font-face{
+	src: url(Newfonts/larsseit/Larsseit-Light.ttf);
+	font-family: laser1;
+}
+
+@font-face{
+	src: url(Newfonts/larsseit/Larsseit-Thin.ttf);
+	font-family: laser2;
+}
+
+@font-face{
+	src: url(Newfonts/larsseit/Larsseit-Bold.ttf);
+	font-family: laser3;
+}
+
+@font-face{
+	src: url(Newfonts/Grand_Hotel/GrandHotel-Regular.ttf);
+	font-family: grand;
+}
+
+@font-face{
+	src: url(Newfonts/maziusDisplay/MAZIUSREVIEW20.09-Regular.ttf);
+	font-family: mazius;
+}
+
+@font-face{
+	src: url(Newfonts/bandage-kroasty-font/BandageKroasty-RpJ0A.ttf);
+	font-family: bandage;
+}
+
+@font-face{
+	src: url(Newfonts/besties-matthew-font/BestiesMatthewRegular-PK3Zd.ttf);
+	font-family: bestie;
+}
+
+@font-face{
+	src: url(Newfonts/bolton-sans-cufonfonts/Bolton_sans.ttf);
+	font-family: bolton;
+}
+
+@font-face{
+	src: url(Newfonts/Enzyme-Display-Typeface/Enzyme.otf);
+	font-family: enzyme;
+}
+
+@font-face{
+	src: url(Newfonts/estella/Estella.ttf);
+	font-family: estella;
+}
+
+@font-face{
+	src: url(Newfonts/gabuek/GabuekScript.ttf);
+	font-family: gabuek;
+}
+
+@font-face{
+	src: url(Newfonts/kayak/KayakSansRegular.otf);
+	font-family: kayak;
+}
+
+@font-face{
+	src: url(Newfonts/march-lovers/MarchLovers.otf);
+	font-family: march;
+}
+
+@font-face{
+	src: url(Newfonts/phoeniks/phoeniks.otf);
+	font-family: phoeniks;
+}
+
+@font-face{
+	src: url(Newfonts/Eurostile/Eurostile-Bold.ttf);
+	font-family: eurostile;
+}

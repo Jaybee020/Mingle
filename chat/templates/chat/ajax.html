@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <button onclick="load()"> check console</button>
+        <div class="text">
+
+        </div>
+
+    </head>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+       
+        $('.text').html("")
+        $.ajax ({
+        
+        url:"{% url 'messages_db' %}",
+        
+        success: function load(data){
+            console.log(data);
+            result=data
+            $.each(result,function(i,item) {
+            
+            $('.text').prepend(`
+            ${item.user}
+            ${item.last_message}
+            ${item.last_contact}
+            `)
+            
+            })
+            }
+            
+        
+        
+        
+        })
+    
+    
+    </script>
+</html> 

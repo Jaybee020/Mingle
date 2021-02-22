@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<html lang="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'User/long.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'User/fonts.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'User/gay.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'User/Newfonts.css' %}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<!-- icons -->
+  	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="{% static 'User/jquery1.js' %}"></script>
+</head>
+<body>
+	<div style="background: #D45E2E; width: 100%;">
+	<div class="top-log">
+		<ul>
+			<li style="width: 50%;">
+				<div style="padding:2px 0 0 20px; ;" class="logo">
+					<img style="width: 30px; " src="{% static 'User/icons/dry-clean.png' %}">
+					Mingle
+				</div>
+			</li>
+			<li>
+				<nav style="position: absolute; top: 0; right: 0;" class="navbar navbar-expand-lg navbar-light ">
+	
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button>
+				  
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					  <ul class="navbar-nav mr-auto">
+						  <li style="margin-right:40px; cursor: pointer;"><a>User</a></li>
+						  <li style="margin-right:20px ; cursor: pointer;"><a>About</a></li>
+						  
+						
+					  </ul>
+					  
+					</div>
+				</nav>
+			</li>
+		</ul>
+		
+		<div  class="register">
+			<div style="padding: 10px 0 10px 0  ; font-size: 40px;" class="logo">
+				
+				Mingle
+			</div>
+        
+            
+			<legend>REGISTER</legend>
+			<div class="container  " style="width: 70%;background: #D45E2E;  height: 70%; padding:10px ; ">
+				<form method="POST">
+					{% csrf_token %}
+					<fieldset class="form-group">
+						<legend>Welcome</legend>
+						<small class="text-muted">Register and begin your journey</small>
+						<hr>
+						{{ form.non_field_errors }}
+	
+						<div class="form-group" style="padding-left: 15px; padding-right: 15px;">
+							
+							<label for="{{ form.username.id_for_label }}">Username</label>
+							{{form.username }}
+							<span style="color: red;">{{form.username.errors}}</span>
+							
+						</div>
+						
+						<div class="form-group" style="padding-left: 15px; padding-right: 15px;">
+							
+							<label for="{{ form.email.id_for_label }}">Email</label>
+							{{form.email }}
+							<span style="color: red;">{{form.email.errors}}</span>
+							
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								
+								<label for="{{ form.password.id_for_label }}">Password</label>
+								{{form.password}}
+								<span style="color: red;">{{ form.password.errors }}</span>
+							</div>
+							<div class="form-group col-md-6">
+								
+							  <label for="{{ form.confirm_password.id_for_label }}">Confirm Password</label>
+							  {{form.confirm_password}}
+							  
+							<span style="color: red;">{{ form.confirm_password.errors }}</span> 
+							</div>
+						  </div>
+						  <small style="padding-left: 15px;" id="emailHelp" class="form-text text-muted">Password should contain at least 8 characters along with one non-alphabetic character</small> 
+						<div class="form-group" style="padding-left: 15px; ">
+							
+							<label style="padding-top: 30px;" for="{{ form.sex.id_for_label }}">Sex:</label>
+							{{form.sex }}
+							{{form.sex.errors}}
+						</div>
+						<div class="form-group" style="padding-left: 15px;">
+							
+							<label for="{{ form.date_of_birth.id_for_label }}">Date of Birth:</label>
+							{{form.date_of_birth }}
+							<span style="color: red;">{{form.date_of_birth.errors}}</span>
+						</div>
+						
+						<legend>Personal Info</legend>
+						<hr>
+						<div class="form-group" style="padding-left: 15px;">
+							
+							<label for="{{ form.location.id_for_label }}">Location:</label>
+							{{form.location }}
+						   <span style="color: red;">{{form.location.errors}}</span> 
+						</div>
+	
+						<div class="form-row">
+							<div class="form-group col-md-6">
+							   
+								<label for="{{ form.minimum_age.id_for_label }}">Interested Minimum Age:</label>
+								{{form.minimum_age}}
+								<span style="color: red;">  {{ form.minimum_age.errors }}</span>
+							</div>
+							<div class="form-group col-md-6">
+								
+							  <label for="{{ form.maximum_age.id_for_label }}">Interested Maximum age:</label>
+							  {{form.maximum_age}}
+							  <span style="color: red;">{{ form.maximum_age.errors }}</span>
+							</div>
+						  </div>
+	
+						
+						<div class="form-group" style="padding-left: 15px;">
+							
+							<label  for="{{ form.interested_in.id_for_label }}">Interested In:</label>
+							{{form.interested_in }}
+						   <span style="color: red;">{{form.interested_in.errors}}</span> 
+						</div>
+	
+						<div class="form-group" style="padding-left: 15px;">
+							
+							<label for="{{ form.sex_interested_in.id_for_label }}">Interested Sex:</label>
+							{{form.sex_interested_in }}
+						   <span style="color: red;">{{form.sex_interested_in.errors}}</span> 
+						</div>
+						
+	
+						
+						<div class="form-group" style="padding-left: 15px;">
+							
+							<label for="{{ form.drinking.id_for_label }}">Drinking:</label>
+							{{form.drinking }}
+						   <span style="color: red;">{{form.drinking.errors}}</span> 
+						</div>
+	
+						<div class="form-group" style="padding-left: 15px;">
+							
+							<label for="{{ form.smoking.id_for_label }}">Smoking:</label>
+							{{form.smoking }}
+						   <span style="color: red;">{{form.smoking.errors}}</span> 
+						</div>
+	
+						<div class="form-group" style="padding-left: 15px;">
+							
+							<label for="{{ form.about.id_for_label }}">Describe Yourself:</label>
+							{{form.about }}
+						   <span style="color: red;">{{form.about.errors}}</span> 
+						</div>
+						
+						
+	
+					</fieldset>
+					<div class="form-group" style="padding-left: 15px;">
+						<button type="submit"  class="btn btn-primary">SUBMIT</button>
+					</div>
+				</form>
+				<div class="border-top pt-3" style="padding-left: 15px;">
+					<small class="text-muted">Do you already have an account? If so <a href="#"  class="ml-1">Sign in</a></small>
+			
+				</div>
+		   
+			</div>
+				
+			<span><button class="btn btn-success"  type="submit">Submit</button></span> <span><small style="text-decoration-line: underline; margin-left: 8px; cursor: pointer;">Create New Account</small></span>
+			</form>
+
+
+		</div>
+	
+	
+           
+
+	</div>
+</div>
+	
+</body>
+
+
+
+
+
+<!-- Scripts -->
+>
+<script src="{% static 'User/long.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

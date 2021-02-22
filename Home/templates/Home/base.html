@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LoveyDovey</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href=" {% static 'Home/Innovation.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        
+            <header>
+              
+            <nav class="navbar navbar-default navbar-fixed-top" style="border: none; background-color: black; width: 100%; ">
+                <div class="container">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Perfect Match</a>
+                  </div>
+                  <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                      <li ><a href="{% url 'Home' %}">Home</a></li>
+                      <li><a href="#about">About</a></li>
+                      <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      {% if user.is_authenticated %}
+                        <li ><a  href="{% url 'profile' request.user.username %}">My Profile<i class="fa fa-user-plus"></i></a></li>
+                        <li><a href="{% url 'logout' %}">Logout  <i class="fa fa-user"></i></a></li>
+                      {% else %}
+                      <li><a href="{% url 'register' %}">Signup  <i class="fa fa-user-plus"></i></a></li>
+                      <li><a href="{% url 'login' %}">Login  <i class="fa fa-user"></i></a></li>
+                      {% endif %}
+                    </ul>
+                  </div>
+                </div>
+               </nav>
+              
+             
+
+        </header>
+      
+        
+        <main style="margin-top: 50px; min-height: 100%;" >
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-success" role="alert" style="padding-bottom: 0px; margin-top: 50px; margin-bottom: 0px; ">
+            {{message}}
+          </div>
+          {% endfor %}
+        {% endif %}
+          {% block content %} {% endblock %}
+        </main>
+
+
+
+        <footer >
+          <div class="container">
+             <div><a href="#">TERMS</a></div> 
+
+           <div><a href="#">FAQS</a></div>   
+  
+             <div><a href="#">PRIVACY</a></div> 
+
+             <div style="float: right;">@2020 Pornhub Junior actors</div>
+          </div>
+         
+         
+
+
+      </footer>
+
+            
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
+              
+
+
+    </body>
+    
+</html>

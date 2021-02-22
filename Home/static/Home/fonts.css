@@ -1,0 +1,116 @@
+@font-face{
+	src: url(fonts/Jost/JostItalic.ttf);
+	font-family: jost1;
+}
+@font-face{
+	src: url(fonts/Jost/JostItalic1.ttf);
+	font-family: jost2;
+}
+@font-face{
+	src: url(fonts/Apercu/ApercuLight.otf);
+	font-family: apercu;
+}
+@font-face{
+	src: url(fonts/Apercu/ApercuProBold.otf);
+	font-family: apercu1;
+}
+@font-face{
+	src: url(fonts/Apercu/ApercuMedium.otf);
+	font-family: apercu2;
+}
+@font-face{
+	src: url(fonts/Apercu/ApercuBold.otf);
+	font-family: apercu3;
+}
+@font-face{
+	src: url(fonts/Apercu/ApercuProLight.otf);
+	font-family: apercu4;
+}
+@font-face{
+	src: url(fonts/Apercu/ApercuProLightItalic.otf);
+	font-family: apercu5;
+}
+
+@font-face{
+	src: url(fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf);
+	font-family: roboto1;
+}
+@font-face{
+	src: url(fonts/Roboto_Condensed/RobotoCondensed-Light.ttf);
+	font-family: roboto6;
+}
+@font-face{
+	src: url(fonts/bebas_neue/BebasNeue-Regular.ttf);
+	font-family: bebas;
+}
+@font-face{
+	src: url(fonts/Caveat/Caveat-Regular.ttf);
+	font-family: caveat;
+}
+@font-face{
+	src: url(fonts/Roboto_Condensed/RobotoCondensed-BoldItalic.ttf);
+	font-family: roboto2;
+}
+@font-face{
+	src: url(fonts/Roboto/Roboto-Bold.ttf);
+	font-family: roboto3;
+}
+@font-face{
+	src: url(fonts/Roboto/Roboto-Regular.ttf);
+	font-family: roboto4;
+}
+@font-face{
+	src: url(fonts/Roboto/Roboto-Light.ttf);
+	font-family: roboto9;
+}
+@font-face{
+	src: url(fonts/Roboto/Roboto-Thin.ttf);
+	font-family: roboto8;
+}
+@font-face{
+	src: url(fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf);
+	font-family: roboto5;
+}
+@font-face{
+	src: url(fonts/Odibee_Sans/OdibeeSans-Regular.ttf);
+	font-family: odibee;
+}
+@font-face{
+	src: url(fonts/Oswald/Oswald-VariableFont_wght.ttf);
+	font-family: oswald;
+}
+@font-face{
+	src: url(fonts/Kaushan_Script/KaushanScript-Regular.ttf);
+	font-family: kaushan;
+}
+@font-face{
+	src: url(fonts/Pacifico/Pacifico-Regular.ttf);
+	font-family: pacifico;
+}
+@font-face{
+	src: url(fonts/Lobster/Lobster-Regular.ttf);
+	font-family: lobster;
+}
+@font-face{
+	src: url(fonts/Raleway/Raleway-Regular.ttf);
+	font-family: raleway;
+}
+@font-face{
+	src: url(fonts/Dancing_Script/DancingScript-Bold.ttf);
+	font-family: dance;
+}
+@font-face{
+	src: url(fonts/Ballegra.ttf);
+	font-family: ballegra;
+}
+@font-face{
+	src: url(fonts/flash_back/FlashBack-Demo.ttf);
+	font-family: flashback;
+}
+@font-face{
+	src: url(fonts/Fredoka_One/FredokaOne-Regular.ttf);
+	font-family: fredoka;
+}@font-face{
+	src: url(fonts/Ropa_Sans/RopaSans-Regular.ttf);
+	font-family: ropa;
+}

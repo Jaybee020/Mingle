@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+
+html, body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body{
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+	background: #232323;
+	display: flex;
+}
+
+ul, li{
+	padding: 0;
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+
+::-webkit-scrollbar{
+	width: 6px;
+	background: #232323;
+	right: 50px;
+}
+
+::-webkit-scrollbar-thumb{
+	width: 6px;
+	background: rgba(150, 150, 150, 0.4);
+	border-radius: 6px;
+}
+
+/*Page Loader*/
+.loader-wrapper{
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	background: #212121;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+.test{
+	height: 500px;
+	width: 0px;
+	position: absolute;
+	left: 100px;
+	opacity: 0;
+	overflow: hidden;
+	border: 3px solid #e2e2e2;
+	border-radius: 5px;
+}
+
+.test1{
+	background: url(photo-1563775685585-5a6528b0e986.jfif);
+	background-size: cover;
+	transform: rotateZ(-17deg);
+}
+.test2{
+	background: url(pexels-thiago-rebouças-3625321.jpg);
+	background-size: cover;
+	transform: rotateZ(-10deg);
+}
+.test3{
+	background: url(pexels-luriko-yamaguchi-3814812.jpg);
+	background-size: cover;
+	transform: rotateZ(10deg);
+}
+.test4{
+	/*background: url(ins/woman-with-flower-in-her-mouth-wearing-sunglasses-3608367.jpg);*/
+	/*background: url(ins/monochrome-photo-of-woman-standing-near-wall-3625321.jpg);*/
+	background: url(pexels-rômulo-carolino-2914284.jpg);
+	background-size: cover;
+	transform: rotateZ(0deg);
+}
+
+.load{
+	margin-left: 200px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.load img{
+	width: 35px;
+	height: 35px;
+	margin-right: 18px;
+}
+
+.load p{
+	font-size: 30vw;
+	font-family: tusker2;
+	color: #e2e2e2;
+	font-weight: lighter;
+	/*text-transform: uppercase;*/
+	/*border-bottom: 2px solid #232323;*/
+	letter-spacing: 2px;
+	padding-bottom: 2px;
+}
+
+/**************************/
+
+.cont{
+	width: 100%;
+	min-height: 100vh;
+}
+
+.page1{
+	width: 100%;
+	height: 100vh;
+	background: url(ins/image2.png) repeat center center/450px;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.nav{
+	height: 60px;
+	top: 0;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.logo{
+	
+	width: 50px;
+	
+	font-family: alloy;
+	font-size: 20px;
+	display: flex;
+	
+}
+.logo-2{
+	
+	width: 50px;
+	color: white;
+	font-family: alloy;
+	font-size: 100px;
+	display: flex;
+	
+}
+
+.logo img{
+	height: 20px;
+	width: 20px;
+	margin: 5px;
+}
+
+.lang{
+	position: absolute;
+	top: 0;
+	right: 80px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: ropa;
+	font-size: 16px;
+}
+
+.lang span{
+	margin-left: 5px;
+	color: grey;
+}
+
+.talk{
+	width: 45%;
+	height: 95%;
+	padding:0 0 0 0.95%;
+}
+
+
+
+.talk1{
+	font-family: eurostile;
+	font-size: 54px;
+	
+}
+
+.map{
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	border: 1px solid #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-transform: uppercase;
+	margin:7% 0 0 65%;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+@media (max-width:1260px){
+	.talk1{
+		font-family: eurostile;
+		font-size: 40px;
+		
+	}
+}
+
+
+@media (max-width:880px){
+	.talk1{
+		font-family: eurostile;
+		font-size: 35px;
+		
+	}
+}
+
+@media (max-width:780px){
+	.talk1{
+		font-family: eurostile;
+		font-size: 30px;
+		
+	}
+}
+
+@media (max-width:680px){
+	.talk1{
+		font-family: eurostile;
+		font-size: 29px;
+		
+	}
+
+	.map{
+		height: 100px;
+		width: 100px;
+		border-radius: 50%;
+		border: 1px solid #000;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		text-transform: uppercase;
+		margin:7% 0 0 55%;
+		transition: 0.5s;
+		cursor: pointer;
+	}
+}
+
+@media (max-width:500px){
+	.talk1{
+		font-family: eurostile;
+		font-size: 27px;
+		
+	}
+
+	.map{
+		height: 120px;
+		width: 120px;
+		border-radius: 50%;
+		border: 1px solid #000;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		text-transform: uppercase;
+		margin:7% 0 0 55%;
+		transition: 0.5s;
+		cursor: pointer;
+	}
+}
+
+
+
+.map:hover{
+	transform: scale(1.1);
+}
+
+.map p{
+	margin: 2px 0;
+	font-family: laser;
+}
+
+.map img{
+	height: 30px;
+	width: 40px;
+}
+
+.spic{
+	position: absolute;
+	right: 80px;
+	top: 60px;
+	width: 550px;
+	height: 550px;
+	background: transparent;
+	overflow: hidden;
+}
+
+.spic-inner{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 100%;
+	background:rgba(0,0,0,0.1);
+	overflow: hidden;
+}
+
+.spic-inn{
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	width: 0;
+	height: 100%;
+	background: url(ins/img-left.jpeg);
+background: url(pexels-photo-2808658.jpeg);
+	background-size: cover;
+	background-position: center;
+}
+
+
+blockquote {
+	font-weight: 100;
+	font-size: 2rem;
+	max-width: 600px;
+	line-height: 1.4;
+	position: relative;
+	margin: 0;
+	padding: .5rem;
+}
+
+
+
+cite {
+	line-height: 3;
+	text-align: left;
+}
+
+.grow{
+	cursor: pointer;
+	transition: all .4s ease-in-out; 
+}
+
+.grow:hover { 
+	transform: scale(1.05); 
+	}
+
+
+
+

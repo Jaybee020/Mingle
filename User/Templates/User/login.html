@@ -1,0 +1,36 @@
+{% extends 'Home/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1 style="padding-bottom: 34%;">You have to be logged out</h1>
+    {% else %}
+    <div style="background-color: whitesmoke; padding:15px 5px 40px 5px ;">
+        <div class="container  " style="width: 50%;background-color: white;  height: 70%; padding:15px  ; ">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend>Welcome</legend>
+                    <small class="text-muted">Register and begin your journey</small>
+                    <hr>
+                    {{form|crispy}}
+                    
+                   
+                </fieldset>
+                <div class="form-group" style="padding-left: 1px;">
+                    <button type="submit"  class="btn btn-primary">LOG-IN</button>
+                </div>
+            </form>
+            <div class="border-top pt-3" style="padding-left: 1px;">
+                <small class="text-muted">First Time here!!! <a href="#"  class="ml-1">Register</a></small>
+        
+            </div>
+       
+        </div>
+        
+   
+    </div>
+    
+    {% endif %}
+
+       
+{% endblock %}

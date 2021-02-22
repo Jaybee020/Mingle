@@ -1,0 +1,105 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block content %}
+          
+          
+          <div  style="background-color: black;">
+              
+          <div class="container">
+              <div class="row" style="padding: 0px;">
+                <div class="col-sm-7" style="background-color: black;">
+                  <div style="background-color: black; padding-top: 80px;" class="jumbotron">
+                    <h1 class="display-4">EXPRESS YOUR SEXUAL DESIRES</h1>
+                    <p class="lead">In a world that crticizes your sexual desires,we accept you and find people that would satisfy it</p>
+                    
+                    {% if user.is_authenticated %}
+                   
+                    {% else %}
+                      <hr class="my-4">
+                      <p>Signing up is fast and free</p>
+                      <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Join Now</a>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="col-sm-5 ">
+                  <img style="background-color: black;" height="720px" src="https://images.pexels.com/photos/3693878/pexels-photo-3693878.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
+                 
+                </div>
+              </div>
+              
+            
+          </div>
+          </div>
+        
+        
+        
+        <div class="centre">
+          <h2 class="title"> What We Offer</h2>
+         
+            <div style="padding-top: 15px;">
+                <div class="row">
+                  <div class="col-md-4">
+                    <svg class="bi bi-shield-fill" width="8em" height="8em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.187 1.025C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 012.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 01-2.418 2.3 6.942 6.942 0 01-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 01-1.007-.586 11.192 11.192 0 01-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 012.415 1.84a61.11 61.11 0 012.772-.815z" clip-rule="evenodd"/>
+                      </svg>
+                      <p class="wrapper">Very secure site as we take our verification very important</p>
+                  </div>
+                  <div class="col-md-4">
+                    <svg class="bi bi-chat-fill" width="8em" height="8em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 008 15z"/>
+                      </svg>
+                      <p class="wrapper"> Easy messaging between potential sexmates and lovers</p>
+                  </div>
+                  <div class="col-md-4">
+                    <svg class="bi bi-shield-fill" width="8em" height="8em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.187 1.025C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 012.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 01-2.418 2.3 6.942 6.942 0 01-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 01-1.007-.586 11.192 11.192 0 01-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 012.415 1.84a61.11 61.11 0 012.772-.815z" clip-rule="evenodd"/>
+                      </svg>
+                      <p  class="wrapper">Easy method of searching for means to your sexual satisfaction</p>
+                  </div>
+                </div>
+              </div>
+              <hr style="width: 80%;">
+              
+        </div>
+
+        
+
+        <div class="container">
+            <h3 style="text-align: center;" class="title">LATEST COUPLES FROM OUR SITE</h3>
+            <hr style="width: 90%;">
+
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div  class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1528165990012-15bdf54858cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60">
+                       
+                    </div>
+                    <p class="wrapper">Romeo and Juliet</p>
+                </div>
+                  <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1541089404510-5c9a779841fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60">
+                    </div>
+                    <p class="wrapper">Jack and Rose</p>
+                </div>
+                  <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1524604889898-0f803deb1664?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60">
+                    </div>
+                    <p class="wrapper">Bonnie and Clyde</p>
+                </div>
+                </div>
+              </div>
+
+              <hr>
+        </div>
+      
+{% endblock %}
+
+      
+
+        
+        
+
+        

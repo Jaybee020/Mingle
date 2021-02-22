@@ -1,0 +1,23 @@
+{% extends 'Home/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div style="background-color: whitesmoke; padding:15px 5px 25% 5px ;">
+        <div class="container  " style="width: 50%;background-color: white;  height: 70%; padding:15px  ; ">
+            
+
+            <h1>You have been successfully logged out!!</h1>
+
+            <div class="border-top pt-3" style="padding-left: 1px;">
+                <small class="text-muted"> <a href="{% url 'login' %}"  class="ml-1">Sign In </a></small>
+                <small style="padding-left: 30px;" class="text-muted"> <a href="{% url 'register' %}"  class="ml-1">Register </a></small>
+        
+            </div>
+       
+        </div>
+        
+   
+    </div>
+    
+
+       
+{% endblock %}
